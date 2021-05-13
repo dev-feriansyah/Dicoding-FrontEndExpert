@@ -1,6 +1,15 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
+import '../scripts/nongkis';
+import data from '../DATA.json';
 
+// Set Nongkis
+const content = document.querySelector('#content');
+const nongkiListElement = document.createElement("nongki-list");
+nongkiListElement.nongkis = data.restaurants;
+content.appendChild(nongkiListElement);
+
+// Navigation
 const navigation = document.querySelector('#navigation');
 const navigationBtn = document.querySelector('#navigation-btn');
 const navList = document.querySelector('.nav__list a');
@@ -20,3 +29,5 @@ navigationBtn.addEventListener('click', event => {
 
     event.stopPropagation();
 });
+
+
