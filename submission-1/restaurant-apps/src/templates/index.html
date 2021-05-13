@@ -2,15 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Restaurant Apps Starter Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nongki Id</title>
 </head>
 <body>
-<h1>Restaurant Apps Starter Project</h1>
-<p>Hallo coders! Anda berhasil menjalankan starter project.</p>
-<p>Jangan lupa untuk menggunakan salah satu gambar yang berada pada ./images/heros sebagai background hero elemen</p>
-<img src="./images/heros/hero-image_1.jpg" width="450" alt="">
-<img src="./images/heros/hero-image_2.jpg" width="450" alt="">
-<img src="./images/heros/hero-image_3.jpg" width="450" alt="">
-<img src="./images/heros/hero-image_4.jpg" width="450" alt="">
+    <div class="hero">
+        <header class="header">
+            <h1 class="header__title"><span>Nongki</span>.Id</h1>
+            <button type="button" class="nav-btn" aria-label="Tombol Navigasi" aria-expanded="false" id="navigation-btn"
+                aria-haspopup="true">
+                <span></span>
+            </button>
+            <nav class="nav" id="navigation" aria-label="Navigasi">
+                <header>
+                    <h2 class="nav__title">Navigasi</h2>
+                </header>
+                <ul class="nav__list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Favorite</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="hero__inner">
+            <h2 class="hero__title">Cari tempat nongki andalan Anda dengan mudah</h2>
+            <p class="hero__tagline">Kumpulan tempat nongki yang ada di Indonesia</p>
+        </div>
+    </div>
+    <main>
+        <section class="content">
+            <h2>Tempat Nongki</h2>
+            <div class="nongkis">
+                <article class="nongkis-item">
+                    <figure>
+
+                        <img src="https://dicoding-restaurant-api.el.r.appspot.com/images/medium/41" alt="">
+                    </figure>
+                </article>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
