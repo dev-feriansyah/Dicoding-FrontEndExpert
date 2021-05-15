@@ -1,4 +1,4 @@
-import './nongkis-item'
+import './nongki-item'
 
 class NongkiList extends HTMLElement {
  set nongkis(nongkis) {
@@ -9,8 +9,7 @@ class NongkiList extends HTMLElement {
  
  render() {
    this._nongkis.forEach(nongki => {
-     const nongkisItemElement = document.createElement("nongki-item");
-     // memanggil fungsi setter nongki() pada nongki-item.
+     const nongkisItemElement = document.createElement('nongki-item');
      nongkisItemElement.nongki = nongki;
      this.appendChild(nongkisItemElement);
    })

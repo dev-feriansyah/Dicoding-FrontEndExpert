@@ -1,6 +1,6 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
-import '../scripts/nongkis';
+import '../scripts/nongki-list';
 import data from '../DATA.json';
 
 // Set Nongkis

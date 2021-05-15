@@ -34,11 +34,11 @@ button {
     background-color: rgb(219, 250, 198);
     color: rgb(67, 155, 8);
     font-weight: 600;
-    padding: .5rem;
+    padding: 0.5rem;
     z-index: 999;
 }
 .skip-link:focus {
-    top: .5rem;
+    top: 0.5rem;
 }
 
 /* 
@@ -268,7 +268,7 @@ nongki-item img {
     object-fit: fill;
 }
 
-nongki-item > span{
+nongki-item > span {
     font-size: 0.875rem;
     padding: 0.5rem;
     background-color: rgb(255, 255, 255);
@@ -291,6 +291,11 @@ nongki-item h3 {
     font-weight: 600;
     text-transform: capitalize;
     font-size: 1.25rem;
+}
+
+nongki-item a {
+    text-decoration: none;
+    color: #000;
 }
 
 nongki-item p {
