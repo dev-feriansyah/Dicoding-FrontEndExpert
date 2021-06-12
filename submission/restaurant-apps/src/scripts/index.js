@@ -1,31 +1,19 @@
-import 'regenerator-runtime'; /* for async await transpile */
+import 'regenerator-runtime';
 import '../styles/main.css';
-import './nongki-list';
-import data from '../DATA.json';
+// Import all custom element
+import './views/templates/index';
+import App from './views/app';
 
-// Set Nongkis
-const content = document.querySelector('#content');
-const nongkiListElement = document.createElement('nongki-list');
-nongkiListElement.nongkis = data.restaurants;
-content.appendChild(nongkiListElement);
+const app = new App({
+  button: document.querySelector('#navigation-btn'),
+  drawer: document.querySelector('#navigation'),
+  content: document.querySelector('#main-content'),
+});
 
-// Navigation
-const navigation = document.querySelector('#navigation');
-const navigationBtn = document.querySelector('#navigation-btn');
-const navList = document.querySelector('.nav__list a');
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
 
-navigationBtn.addEventListener('click', (event) => {
-  navigation.classList.toggle('nav-open');
-
-  const isOpen = navigation.classList.contains('nav-open');
-  const ariaExpanded = isOpen ? 'true' : 'false';
-  navigationBtn.setAttribute('aria-expanded', ariaExpanded);
-
-  if (isOpen) {
-    setTimeout(() => {
-      navList.focus();
-    }, 500);
-  }
-
-  event.stopPropagation();
+window.addEventListener('load', () => {
+  app.renderPage();
 });

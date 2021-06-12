@@ -10,6 +10,9 @@ body {
   padding: 0;
   margin: 0;
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Make it easier to click and centering both horizontal and vertical. */
@@ -41,6 +44,9 @@ button {
   top: 0.5rem;
 }
 
+#main-content {
+  flex: 1;
+}
 /* 
 ############################
        Hero & Header
@@ -53,33 +59,35 @@ button {
   background-size: cover;
   background-position: 50% 50%;
   min-height: 30rem;
+  display: grid;
+  place-items: center;
 }
 
 .hero__inner {
   text-align: center;
   color: rgb(255, 255, 255);
-  margin: 8rem auto 0;
+  margin: 0 auto;
   padding: 0 1.5rem;
   max-width: 64rem;
 }
 
 .hero__title {
   font-size: 1.8rem;
+  margin: 0;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 1.5rem;
-  max-width: 64rem;
+  padding: 1.5rem;
+  max-width: 72rem;
   margin: 0 auto;
 }
 
 .header__title {
   margin: 0;
   font-size: 1.5rem;
-  color: #fff;
 }
 
 /* 
@@ -184,7 +192,7 @@ button {
   position: absolute;
   height: 4px;
   width: 36px;
-  background: rgb(255, 255, 255);
+  background: #1f2b3d;
 }
 
 .nav-btn span {
@@ -215,11 +223,6 @@ button {
   background: transparent;
 }
 
-.nav-btn[aria-expanded='true'] span::before,
-.nav-btn[aria-expanded='true'] span::after {
-  background: #1f2b3d;
-}
-
 .nav-btn[aria-expanded='true'] span::before {
   transform: rotate(-45deg);
 }
@@ -240,7 +243,7 @@ button {
   padding: 2rem 1.5rem;
 }
 
-.content h2 {
+.content > h2 {
   text-align: center;
   font-size: 1.875rem;
   letter-spacing: 0.1rem;
@@ -306,7 +309,7 @@ nongki-item p {
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 6; 
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
 
@@ -314,7 +317,8 @@ nongki-item p {
 .stars {
   --percent: calc(var(--rating) / 5 * 100%);
 
-  display: inline-block;
+  display: grid;
+  place-items: center;
   font-size: 1.5rem;
   font-family: Times;
   line-height: 1;
@@ -359,7 +363,6 @@ footer {
     display: inline-flex;
     font-size: 1rem;
     font-family: 'Open Sans', sans-serif;
-    color: rgb(255, 255, 255);
   }
   .nav__list li:not(first-child) {
     margin-top: 0;

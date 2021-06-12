@@ -14,10 +14,10 @@
 
 ### Homepage
 
-- [ ] View restaurant list from https://restaurant-api.dicoding.dev/ API
-  - [ ] Image, city, rating and descrption of restaurant
-  - [ ] CTA or link to detail restaurant
-- [ ] Keep Hero Element
+- [x] View restaurant list from https://restaurant-api.dicoding.dev/ API
+  - [x] Image, city, rating and descrption of restaurant
+  - [x] CTA or link to detail restaurant
+- [x] Keep Hero Element
 
 ### Detail Restaurant
 
