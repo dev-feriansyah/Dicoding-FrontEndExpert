@@ -21,8 +21,8 @@
 
 ### Detail Restaurant
 
-- [ ] View detail restaurant from homepage or favorite page
-  - [ ] Image, full address, menu category, food menu, drink menu, rating, customer reviews
+- [x] View detail restaurant from homepage or favorite page
+  - [x] Image, full address, menu category, food menu, drink menu, rating, customer reviews
 - [ ] Create favorite button to add to favorite restaurant (use IndexedDB)
 
 ### Favorite Restaurant List

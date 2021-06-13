@@ -5,10 +5,10 @@ const { BASE_IMAGE_URL } = CONFIG;
 class NongkiItem extends HTMLElement {
   set nongki(nongki) {
     this._nongki = nongki;
-    this.render();
+    this._render();
   }
 
-  render() {
+  _render() {
     this.innerHTML = `
     <img src="${BASE_IMAGE_URL}/small/${this._nongki.pictureId}" alt="${this._nongki.name}">
     <span>Kota ${this._nongki.city}</span>

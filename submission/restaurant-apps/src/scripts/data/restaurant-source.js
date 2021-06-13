@@ -5,6 +5,11 @@ class RestaurantSource {
     const response = await fetch(API_ENDPOINT.INDEX);
     return response.json();
   }
+
+  static async show(id) {
+    const response = await fetch(API_ENDPOINT.SHOW(id));
+    return response.json();
+  }
 }
 
 export default RestaurantSource;

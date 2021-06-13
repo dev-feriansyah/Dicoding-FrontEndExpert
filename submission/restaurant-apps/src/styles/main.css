@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-primary: rgb(149, 247, 84);
+  --color-primary--dark: rgb(67, 155, 8);
+  --color-primary--light: rgb(219, 250, 198);
+  --color-white: rgb(255, 255, 255);
+  --color-black: rgb(0, 0, 0);
+  --color-gray: rgb(100, 100, 100);
+  --color-gray--light: rgb(180, 189, 184);
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   padding: 0;
@@ -27,15 +38,29 @@ button {
 
 /* Utility */
 .text-primary {
-  color: rgb(149, 247, 84);
+  color: var(--color-primary);
+}
+.text-gray {
+  color: var(--color-gray);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .skip-link {
   position: absolute;
   top: -3rem;
   left: 0;
-  background-color: rgb(219, 250, 198);
-  color: rgb(67, 155, 8);
+  background-color: var(--color-primary--light);
+  color: var(--color-primary--dark);
   font-weight: 600;
   padding: 0.5rem;
   z-index: 999;
@@ -65,7 +90,7 @@ button {
 
 .hero__inner {
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: var(--color-white);
   margin: 0 auto;
   padding: 0 1.5rem;
   max-width: 64rem;
@@ -77,6 +102,15 @@ button {
 }
 
 .header {
+  background-color: var(--color-white);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  box-shadow: var(--tw-shadow);
+  z-index: 999;
+}
+
+.header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -90,6 +124,11 @@ button {
   font-size: 1.5rem;
 }
 
+.header__title a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
 /* 
 ############################
  Navigation Off-Canvas Menu
@@ -101,10 +140,10 @@ button {
   z-index: 3;
   top: 0;
   right: 0;
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   padding: 2em 3.5em;
-  background: rgb(250, 252, 251);
+  background: var(--color-white);
   overflow: auto;
   transform: translateX(100%);
   transition: transform 0.5s cubic-bezier(0.07, 0.23, 0.34, 1),
@@ -129,7 +168,7 @@ button {
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: rgb(180, 189, 184);
+  color: var(--color-gray--light);
   margin: 1.5em 0;
   letter-spacing: 0.1rem;
 }
@@ -140,7 +179,7 @@ button {
   font-family: serif;
   font-weight: 700;
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: var(--color-black);
 }
 
 .nav__list li:not(first-child) {
@@ -248,7 +287,7 @@ button {
   font-size: 1.875rem;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
-  color: rgb(96, 99, 94);
+  color: var(--color-gray);
 }
 
 nongki-list {
@@ -260,7 +299,7 @@ nongki-list {
 
 nongki-item {
   overflow: hidden;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--color-white);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   position: relative;
 }
@@ -274,7 +313,7 @@ nongki-item img {
 nongki-item > span {
   font-size: 0.875rem;
   padding: 0.5rem;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--color-white);
   position: absolute;
   top: 0;
   left: 0;
@@ -302,7 +341,7 @@ nongki-item a {
 }
 
 nongki-item p {
-  color: rgb(100, 100, 100);
+  color: var(--color-gray);
   line-height: 1.5rem;
   grid-column: span 2;
   /* Limit Text Length to 6 Lines */
@@ -330,26 +369,143 @@ nongki-item p {
   letter-spacing: 3px;
   background: linear-gradient(
     90deg,
-    rgb(149, 247, 84) var(--percent),
-    rgb(214, 228, 204) var(--percent)
+    var(--color-primary) var(--percent),
+    var(--color-primary--light) var(--percent)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* 
+############################
+    Detail Nongki
+############################
+*/
+
+nongki-detail > figure {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+nongki-detail > figure img {
+  width: 100%;
+  max-height: 20rem;
+  object-fit: cover;
+}
+
+.nongki-detail__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.nongki-detail__header > div span {
+  font-size: 0.75rem;
+  color: var(--color-gray);
+}
+
+.nongki-detail__header > div h2 {
+  margin: 0;
+}
+
+.nongki-detail__category {
+  margin-top: 1rem;
+}
+
+.nongki-detail__category span::before {
+  content: '#';
+}
+
+.nongki-detail__category span {
+  display: inline-block;
+  border: 1px solid var(--color-gray);
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  font-size: 0.875rem;
+}
+
+.nongki-detail__category span:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+.nongki-detail__menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 36rem;
+}
+
+.nongki-detail__menu h3 {
+  margin: 0;
+  grid-column: span 2;
+}
+
+.nongki-detail__review {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.8rem;
+  background-color: white;
+  box-shadow: var(--tw-shadow);
+}
+
+.nongki-detail__review:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.nongki-detail__review__title {
+  font-weight: 700;
+}
+
+.nongki-detail__review__date {
+  font-size: 0.75rem;
+  color: var(--color-gray);
+}
+
+.nongki-detail__review p {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  margin: 0.5rem 0 0;
+}
+
+/*
+   Like
+*/
+.like {
+  font-size: 18px;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-color: var(--color-primary--dark);
+  color: var(--color-white);
+  border: 0;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 2rem;
-  background-color: rgb(84, 134, 87);
-  color: rgb(255, 255, 255);
+  background-color: var(--color-primary--dark);
+  color: var(--color-white);
 }
 
 /* Media Query */
 @media screen and (min-width: 640px) {
+  .header__container {
+    margin: 0 auto;
+  }
   /* Navigation */
   .nav {
     position: relative;
     padding: 0;
+    height: 100%;
     background: transparent;
     transform: translateX(0);
     visibility: visible;
@@ -376,6 +532,10 @@ footer {
   }
   nongki-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .like {
+    width: 3rem;
+    height: 3rem;
   }
 }
 @media screen and (min-width: 1024px) {

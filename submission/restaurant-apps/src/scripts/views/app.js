@@ -15,13 +15,14 @@ class App {
     DrawerInitiator.init({
       button: this._button,
       drawer: this._drawer,
-      content: this._content,
     });
   }
 
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
+    DrawerInitiator.closeDrawer();
+
     this._content.innerHTML = await page.render();
     await page.afterRender();
   }
