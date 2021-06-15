@@ -8,27 +8,37 @@ class NongkiDetail extends HTMLElement {
     this._render();
   }
 
-  _render() {
+  async _render() {
     this.innerHTML = `
-    <figure>
-      <img src="${BASE_IMAGE_URL}/large/${this._nongki.pictureId}" alt="${this._nongki.name}">
-      <nongki-like-button></nongki-like-button>
-    </figure>
-    <div class="nongki-detail__header">
-      <div>
-        <h2>${this._nongki.name}</h2>
-        <span>Kota ${this._nongki.city}, ${this._nongki.address}</span>
+      <figure>
+        <img src="${BASE_IMAGE_URL}/large/${this._nongki.pictureId}" alt="${this._nongki.name}">
+        <nongki-like-button></nongki-like-button>
+      </figure>
+      <div class="nongki-detail__header">
+        <div>
+          <h2>${this._nongki.name}</h2>
+          <span>Kota ${this._nongki.city}, ${this._nongki.address}</span>
+        </div>
+        <div class="stars" style="--rating: ${this._nongki.rating};" role="img" aria-label="Rating tempat adalah ${this._nongki.rating} dari 5"></div>
       </div>
-      <div class="stars" style="--rating: ${this._nongki.rating};" role="img" aria-label="Rating tempat adalah ${this._nongki.rating} dari 5"></div>
-    </div>
-    ${this._renderCategory()}
-    <div>
-        <h3>Deskripsi</h3>
-        <p class="text-gray">${this._nongki.description}</p>
-    </div>
-    ${this._renderMenu()}
-    ${this._renderReview()}
-  `;
+      ${this._renderCategory()}
+      <div>
+          <h3>Deskripsi</h3>
+          <p class="text-gray">${this._nongki.description}</p>
+      </div>
+      ${this._renderMenu()}
+      ${this._renderReview()}
+    `;
+    // Send data nongki to like Button custom element
+    const likeButtonElement = this.querySelector('nongki-like-button');
+    likeButtonElement.nongki = {
+      id: this._nongki.id,
+      name: this._nongki.name,
+      city: this._nongki.city,
+      pictureId: this._nongki.pictureId,
+      rating: this._nongki.rating,
+      description: this._nongki.description,
+    };
   }
 
   _renderCategory() {

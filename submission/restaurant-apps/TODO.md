@@ -9,8 +9,8 @@
 
 ## For Submission 2
 
-- [ ] Create Application Shell: https://www.dicoding.com/academies/219/tutorials/9416
-- [ ] Create good architecture
+- [x] Create Application Shell: https://www.dicoding.com/academies/219/tutorials/9416
+- [x] Create good architecture
 
 ### Homepage
 
@@ -23,22 +23,22 @@
 
 - [x] View detail restaurant from homepage or favorite page
   - [x] Image, full address, menu category, food menu, drink menu, rating, customer reviews
-- [ ] Create favorite button to add to favorite restaurant (use IndexedDB)
+- [x] Create favorite button to add to favorite restaurant (use IndexedDB)
 
 ### Favorite Restaurant List
 
-- [ ] Favorite Page can be access by navigation menu
-- [ ] View favorite restaurant list from indexedDB
-  - [ ] Image, city, rating, description of restaurant
-  - [ ] CTA to detail restaurant
+- [x] Favorite Page can be access by navigation menu
+- [x] View favorite restaurant list from indexedDB
+  - [x] Image, city, rating, description of restaurant
+  - [x] CTA to detail restaurant
 
 ### Native Capability
 
-- [ ] App can be access in offline mode
-  - [ ] Create Manifest.json
-  - [ ] Create Service Worker class
-  - [ ] Register SW and cache
-- [ ] App can be add to home screen
+- [x] App can be access in offline mode
+  - [x] Create Manifest.json
+  - [x] Create Service Worker class
+  - [x] Register SW and cache
+- [x] App can be add to home screen
 - [x] App have custom icon on home screen and splash screen
   - [x] Check if icons in manifest.json
 
@@ -49,13 +49,13 @@
 
 ### From submission 1
 
-- [ ] Responsive
-- [ ] Accessibility
+- [x] Responsive
+- [x] Accessibility
 
 ### Submission Advice - To get 5 Stars
 
 - [ ] Add customer review feature in detail restaurant page using https://restaurant-api.dicoding.dev/
-- [ ] Create good architecture
-- [ ] Use Web Component with Custom Element
+- [x] Create good architecture
+- [x] Use Web Component with Custom Element
 - [ ] Loading Indicator when data being load from server
 - [ ] Error Page when request is failed
