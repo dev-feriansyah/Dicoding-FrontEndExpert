@@ -13,5 +13,6 @@ self.addEventListener('active', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  if (event.request.method === 'POST') return;
   event.respondWith(CacheHelper.revalidateCache(event.request));
 });

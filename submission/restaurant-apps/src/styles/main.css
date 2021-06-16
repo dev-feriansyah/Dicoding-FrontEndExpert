@@ -37,6 +37,10 @@ button {
   min-height: 44px;
 }
 
+#main-content {
+  flex: 1;
+}
+
 /* Utility */
 .text-primary {
   color: var(--color-primary);
@@ -70,8 +74,15 @@ button {
   top: 0.5rem;
 }
 
-#main-content {
-  flex: 1;
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 /* 
 ############################
@@ -444,6 +455,7 @@ nongki-detail > figure img {
   grid-column: span 2;
 }
 
+/* Review */
 .nongki-detail__review {
   display: flex;
   flex-direction: column;
@@ -471,9 +483,73 @@ nongki-detail > figure img {
   margin: 0.5rem 0 0;
 }
 
-/*
-   Like
-*/
+.nongki-detail__reviews {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.nongki-detail__reviews ul {
+  margin: 0;
+  padding: 0;
+}
+
+add-review-form {
+  padding: 1rem;
+  box-shadow: var(--tw-shadow);
+  display: block;
+}
+
+add-review-form h4 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+add-review-form label {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+add-review-form label > span {
+  min-width: 5rem;
+  display: block;
+}
+
+add-review-form label > input,
+add-review-form label > textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  box-shadow: var(--tw-shadow);
+  border-radius: 0.25rem;
+}
+add-review-form label > textarea {
+  min-height: 8rem;
+}
+
+add-review-form button {
+  border: none;
+  border-radius: 0.125rem;
+  background-color: var(--color-primary--dark);
+  color: var(--color-white);
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+add-review-form button svg {
+  width: 1rem;
+  height: 1rem;
+}
+add-review-form button span {
+  margin-right: 0.5rem;
+}
+
+/* Like */
 .like {
   font-size: 18px;
   position: absolute;
@@ -543,6 +619,19 @@ footer {
   .like {
     width: 3rem;
     height: 3rem;
+  }
+}
+@media screen and (min-width: 728px) {
+  .nongki-detail__reviews {
+    grid-template-columns: 4fr minmax(20rem, 1fr);
+  }
+  .nongki-detail__reviews > div {
+    grid-row: 1/2;
+  }
+  add-review-form {
+    grid-column: 2/3;
+    position: sticky;
+    top: 1rem;
   }
 }
 @media screen and (min-width: 1024px) {

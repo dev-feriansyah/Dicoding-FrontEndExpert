@@ -54,7 +54,7 @@
 
 ### Submission Advice - To get 5 Stars
 
-- [ ] Add customer review feature in detail restaurant page using https://restaurant-api.dicoding.dev/
+- [x] Add customer review feature in detail restaurant page using https://restaurant-api.dicoding.dev/
 - [x] Create good architecture
 - [x] Use Web Component with Custom Element
 - [ ] Loading Indicator when data being load from server

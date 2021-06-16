@@ -5,6 +5,7 @@ const CONFIG = {
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'restaurants',
   CACHE_NAME: 'Nongki.id-V1',
+  API_KEY: '12345',
 };
 
 export default CONFIG;

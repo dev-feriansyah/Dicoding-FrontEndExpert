@@ -8,7 +8,13 @@ class NongkiDetail extends HTMLElement {
     this._render();
   }
 
-  async _render() {
+  set reviews(reviews) {
+    this.querySelector('#reviews').remove();
+    this.innerHTML += this._renderReviews(reviews);
+    this._sendDataToLikeButton();
+  }
+
+  _render() {
     this.innerHTML = `
       <figure>
         <img src="${BASE_IMAGE_URL}/large/${this._nongki.pictureId}" alt="${this._nongki.name}">
@@ -27,9 +33,12 @@ class NongkiDetail extends HTMLElement {
           <p class="text-gray">${this._nongki.description}</p>
       </div>
       ${this._renderMenu()}
-      ${this._renderReview()}
+      ${this._renderReviews(this._nongki.customerReviews)}
     `;
-    // Send data nongki to like Button custom element
+    this._sendDataToLikeButton();
+  }
+
+  _sendDataToLikeButton() {
     const likeButtonElement = this.querySelector('nongki-like-button');
     likeButtonElement.nongki = {
       id: this._nongki.id,
@@ -78,23 +87,32 @@ class NongkiDetail extends HTMLElement {
     `;
   }
 
-  _renderReview() {
-    const reviewList = this._nongki.customerReviews
+  _renderReviews(reviews) {
+    const reviewList = reviews
+      .reverse()
       .map(
         (review) => `
-        <div class="nongki-detail__review">
+        <li class="nongki-detail__review">
           <span class="nongki-detail__review__title">${review.name}</span>
           <span class="nongki-detail__review__date">${review.date}</span>
           <p>${review.review}</p>
-        </div>
+        </li>
       `,
       )
       .join('');
     return `
-      <div>
-          <h3>Review</h3>
+      <div id="reviews">
           <div>
-            ${reviewList}
+            <h3>Review</h3>
+          </div>
+          <div class="nongki-detail__reviews">
+            <add-review-form data-restaurant-id="${this._nongki.id}"></add-review-form>
+            <div>
+              <h4 class="sr-only">List Review</h4>
+              <ul>
+                ${reviewList}
+              </ul>
+            </div>
           </div>
       </div>
     `;

@@ -1,3 +1,4 @@
+import './add-review-form';
 import './app-header';
 import './app-footer';
 import './nongki-detail';
