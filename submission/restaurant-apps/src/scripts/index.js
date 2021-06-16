@@ -6,13 +6,14 @@ import App from './views/app';
 import swRegister from './utils/sw-register';
 
 const app = new App({
-  button: document.querySelector('#navigation-btn'),
-  drawer: document.querySelector('#navigation'),
   content: document.querySelector('#main-content'),
 });
 
+const AppHeader = document.querySelector('app-header');
+
 window.addEventListener('hashchange', () => {
   app.renderPage();
+  AppHeader.closeDrawer();
 });
 
 window.addEventListener('load', () => {
